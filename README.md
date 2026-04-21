@@ -1,5 +1,7 @@
 # Microsoft Graph Mail API
 
+[![DeepSource](https://app.deepsource.com/gh/cityssm/node-ms-graph-mail.svg/?label=active+issues&show_trend=true&token=KkSuPUghHqeLWICUprgijw-o)](https://app.deepsource.com/gh/cityssm/node-ms-graph-mail/)
+
 Wrappers around the Microsoft Graph API
 to add response types to the Mail-related queries.
 
@@ -105,3 +107,9 @@ async function sendMessage(
   message: MsGraphMailSendableMessage
 ): Promise<void> {}
 ```
+
+## Related Projects
+
+[**ShiftLog**](https://github.com/cityssm/shiftLog/)<br />
+A work management system with work order recording, shift activity logging,
+and timesheet tracking.
