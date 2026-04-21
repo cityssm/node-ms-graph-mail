@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2024",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "types": ["node"],
+
+    "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
+
+    "isolatedModules": true,
+
+    "declaration": true,
+    "removeComments": false,
+
+    "allowUnreachableCode": false,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+
+    "strictNullChecks": true,
+    "noImplicitAny": false
+  },
+  "compileOnSave": true,
+  "buildOnSave": true
+}

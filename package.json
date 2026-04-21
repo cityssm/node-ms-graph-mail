@@ -1,0 +1,46 @@
+{
+  "name": "@cityssm/ms-graph-mail",
+  "version": "0.1.0",
+  "description": "Wrappers around the Microsoft Graph API to add response types to the Mail-related queries.",
+  "keywords": [
+    "microsoft-graph",
+    "microsoft-exchange",
+    "email"
+  ],
+  "homepage": "https://github.com/cityssm/node-ms-graph-mail#readme",
+  "bugs": {
+    "url": "https://github.com/cityssm/node-ms-graph-mail/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cityssm/node-ms-graph-mail.git"
+  },
+  "license": "MIT",
+  "author": "The Corporation of the City of Sault Ste. Marie",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "main": "index.js",
+  "files": [
+    "index.*"
+  ],
+  "scripts": {
+    "coverage": "c8 --reporter=lcov --reporter=text --reporter=text-summary node --test test/test.js",
+    "test": "node --test test/test.js"
+  },
+  "dependencies": {
+    "@azure/identity": "^4.13.1",
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "debug": "^4.4.3",
+    "mime-types": "^3.0.2",
+    "odata-query": "^8.0.7"
+  },
+  "devDependencies": {
+    "@types/mime-types": "^3.0.1",
+    "@types/node": "^25.6.0",
+    "eslint-config-cityssm": "^39.1.0",
+    "prettier-config-cityssm": "^2.1.2"
+  }
+}
