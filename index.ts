@@ -150,8 +150,10 @@ export default class MsGraphMailApi {
 
     const mailFolders = await this.listMailFolders(folderOptions)
 
-    const folder = mailFolders.find((folder) =>
-      folder.displayName.toLowerCase().includes(displayName.toLowerCase())
+    const folder = mailFolders.find((possibleFolder) =>
+      possibleFolder.displayName
+        .toLowerCase()
+        .includes(displayName.toLowerCase())
     )
 
     return folder
