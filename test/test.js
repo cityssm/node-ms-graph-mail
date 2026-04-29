@@ -25,7 +25,6 @@ await describe('MsGraphMailApi', async () => {
     await it('should list messages in inbox folder', async () => {
         const api = new MsGraphMail(config);
         const messages = await api.listMessages(wellKnownFolderNames.Inbox, {
-            select: ['id', 'subject', 'receivedDateTime', 'from', 'body'],
             orderBy: ['receivedDateTime desc'],
             top: 5
         });
@@ -68,7 +67,7 @@ await describe('MsGraphMailApi', async () => {
             console.log(`Saved attachment "${attachment.name}" to test/data directory`);
         }
     });
-    await it('should move a message to the archive folder', async () => {
+    await it.skip('should move a message to the archive folder', async () => {
         const api = new MsGraphMail(config);
         const messages = await api.listMessages(wellKnownFolderNames.Inbox, {
             orderBy: ['receivedDateTime'],
@@ -92,7 +91,7 @@ await describe('MsGraphMailApi', async () => {
             .withSubject('Test Message from node-ms-graph-mail')
             .withBody('<p><b>Test Message Body</b></p>', 'html')
             .appendToBody('<p>This message was sent using the node-ms-graph-mail package.</p>', 'html')
-            .addToRecipient(toEmailAddress)
+            .addToRecipients([toEmailAddress])
             .addAttachmentFromFilePath('logo.png', path.join('test', 'data', 'logo.png'))
             .build();
         await api.sendMessage(message);

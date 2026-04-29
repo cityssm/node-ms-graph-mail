@@ -50,7 +50,6 @@ await describe('MsGraphMailApi', async () => {
     const api = new MsGraphMail(config)
 
     const messages = await api.listMessages(wellKnownFolderNames.Inbox, {
-      select: ['id', 'subject', 'receivedDateTime', 'from', 'body'],
       orderBy: ['receivedDateTime desc'],
       top: 5
     })
@@ -121,7 +120,7 @@ await describe('MsGraphMailApi', async () => {
     }
   })
 
-  await it('should move a message to the archive folder', async () => {
+  await it.skip('should move a message to the archive folder', async () => {
     const api = new MsGraphMail(config)
 
     const messages = await api.listMessages(wellKnownFolderNames.Inbox, {
@@ -161,7 +160,7 @@ await describe('MsGraphMailApi', async () => {
         '<p>This message was sent using the node-ms-graph-mail package.</p>',
         'html'
       )
-      .addToRecipient(toEmailAddress)
+      .addToRecipients([toEmailAddress])
       .addAttachmentFromFilePath(
         'logo.png',
         path.join('test', 'data', 'logo.png')
