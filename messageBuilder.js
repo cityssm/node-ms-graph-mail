@@ -42,6 +42,12 @@ export default class MsGraphMailMessageBuilder {
         }
         return this;
     }
+    addBccRecipients(emailAddresses) {
+        for (const emailAddress of emailAddresses) {
+            this.addBccRecipient(emailAddress);
+        }
+        return this;
+    }
     addCcRecipient(emailAddress) {
         if (typeof emailAddress === 'string') {
             this.#ccRecipients.push({ emailAddress: { address: emailAddress } });
@@ -51,12 +57,24 @@ export default class MsGraphMailMessageBuilder {
         }
         return this;
     }
+    addCcRecipients(emailAddresses) {
+        for (const emailAddress of emailAddresses) {
+            this.addCcRecipient(emailAddress);
+        }
+        return this;
+    }
     addToRecipient(emailAddress) {
         if (typeof emailAddress === 'string') {
             this.#toRecipients.push({ emailAddress: { address: emailAddress } });
         }
         else {
             this.#toRecipients.push({ emailAddress });
+        }
+        return this;
+    }
+    addToRecipients(emailAddresses) {
+        for (const emailAddress of emailAddresses) {
+            this.addToRecipient(emailAddress);
         }
         return this;
     }

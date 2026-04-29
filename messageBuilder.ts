@@ -74,6 +74,17 @@ export default class MsGraphMailMessageBuilder {
     } else {
       this.#bccRecipients.push({ emailAddress })
     }
+
+    return this
+  }
+
+  addBccRecipients(
+    emailAddresses: Array<MsGraphMailEmailAddress | string>
+  ): this {
+    for (const emailAddress of emailAddresses) {
+      this.addBccRecipient(emailAddress)
+    }
+
     return this
   }
 
@@ -83,6 +94,17 @@ export default class MsGraphMailMessageBuilder {
     } else {
       this.#ccRecipients.push({ emailAddress })
     }
+
+    return this
+  }
+
+  addCcRecipients(
+    emailAddresses: Array<MsGraphMailEmailAddress | string>
+  ): this {
+    for (const emailAddress of emailAddresses) {
+      this.addCcRecipient(emailAddress)
+    }
+
     return this
   }
 
@@ -92,6 +114,17 @@ export default class MsGraphMailMessageBuilder {
     } else {
       this.#toRecipients.push({ emailAddress })
     }
+
+    return this
+  }
+
+  addToRecipients(
+    emailAddresses: Array<MsGraphMailEmailAddress | string>
+  ): this {
+    for (const emailAddress of emailAddresses) {
+      this.addToRecipient(emailAddress)
+    }
+
     return this
   }
 
