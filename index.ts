@@ -131,7 +131,7 @@ export default class MsGraphMailApi {
    */
   async getMailFolderByDisplayName(
     displayName: string,
-    options?: Pick<MsGraphMailApiOptions<MsGraphMailFolder>, 'select'>
+    options: Pick<MsGraphMailApiOptions<MsGraphMailFolder>, 'select'> = {}
   ): Promise<MsGraphMailFolder | undefined> {
     const folderOptions = {
       filter: {

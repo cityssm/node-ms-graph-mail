@@ -84,7 +84,7 @@ export default class MsGraphMailApi {
      * @returns A promise that resolves to the mail folder object if found, or undefined if no matching folder is found.
      * @throws {Error} Will throw an error if the API request fails or if the response is not in the expected format.
      */
-    async getMailFolderByDisplayName(displayName, options) {
+    async getMailFolderByDisplayName(displayName, options = {}) {
         const folderOptions = {
             filter: {
                 displayName: { contains: displayName }

@@ -128,7 +128,7 @@ export interface MsGraphMailSendableMessage {
 export interface MsGraphMailSendableAttachment {
   '@odata.type': '#microsoft.graph.fileAttachment'
   name: string
-  
+
   contentBytes: string
   contentType?: string
 }
