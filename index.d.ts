@@ -98,6 +98,14 @@ export default class MsGraphMailApi {
      */
     listMessages(folderIdOrWellKnownFolderName: string, options?: MsGraphMailApiOptions<MsGraphMailMessage>): Promise<MsGraphMailMessage[]>;
     /**
+     * Marks a message as read by setting its 'isRead' property to true.
+     * @param messageId - The ID of the message to mark as read.
+     * @returns A promise that resolves when the operation is complete.
+     * @see {@link https://learn.microsoft.com/en-us/graph/api/message-update?view=graph-rest-1.0&tabs=http}
+     * @throws {Error} Will throw an error if the API request fails or if the response is not in the expected format.
+     */
+    markMessageAsRead(messageId: string): Promise<void>;
+    /**
      * Moves a message to a specified mail folder.
      * @param messageId - The ID of the message to move.
      * @param destinationFolderIdOrWellKnownFolderName - The ID of the destination mail folder or a well-known folder name (e.g., 'Inbox', 'Archive').
@@ -111,6 +119,9 @@ export default class MsGraphMailApi {
      * The message should be constructed using the MsGraphMailMessageBuilder to ensure
      * its in the correct format for sending.
      * @param message - The message to be sent, constructed using the MsGraphMailMessageBuilder.
+     * @returns A promise that resolves when the operation is complete.
+     * @see {@link https://learn.microsoft.com/en-us/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http}
+     * @throws {Error} Will throw an error if the API request fails or if the response is not in the expected format.
      */
     sendMessage(message: MsGraphMailSendableMessage): Promise<void>;
 }

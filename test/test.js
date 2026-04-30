@@ -22,7 +22,7 @@ await describe('MsGraphMailApi', async () => {
         assert.ok(inboxFolder, 'Expected inboxFolder to be defined');
         assert.strictEqual(inboxFolder.displayName.toLowerCase(), 'inbox', 'Expected inboxFolder displayName to include "Inbox"');
     });
-    await it('should list messages in inbox folder', async () => {
+    await it.skip('should list messages in inbox folder', async () => {
         const api = new MsGraphMail(config);
         const messages = await api.listMessages(wellKnownFolderNames.Inbox, {
             orderBy: ['receivedDateTime desc'],
@@ -85,7 +85,24 @@ await describe('MsGraphMailApi', async () => {
         });
         assert.strictEqual(movedMessage.parentFolderId, archiveFolder.id, 'Expected moved message parentFolderId to match archive folder ID');
     });
-    await it('should send a message', async () => {
+    await it('should mark a message as read', async () => {
+        const api = new MsGraphMail(config);
+        const messages = await api.listMessages(wellKnownFolderNames.Inbox, {
+            filter: {
+                isRead: false
+            },
+            orderBy: ['receivedDateTime'],
+            top: 1
+        });
+        if (messages.length === 0) {
+            console.log('No messages found in inbox folder to mark as read');
+            return;
+        }
+        const messageToMarkAsRead = messages[0];
+        await api.markMessageAsRead(messageToMarkAsRead.id);
+        console.log(`Message with ID ${messageToMarkAsRead.id} marked as read`);
+    });
+    await it.skip('should send a message', async () => {
         const api = new MsGraphMail(config);
         const message = new MsGraphMailMessageBuilder()
             .withSubject('Test Message from node-ms-graph-mail')

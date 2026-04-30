@@ -108,6 +108,12 @@ async function sendMessage(
 ): Promise<void> {}
 ```
 
+### Message Update Functions
+
+```typescript
+async function markMessageAsRead(messageId: string): Promise<void> {}
+```
+
 ## Related Projects
 
 [**ShiftLog**](https://github.com/cityssm/shiftLog/)<br />
