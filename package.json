@@ -1,6 +1,6 @@
 {
   "name": "@cityssm/ms-graph-mail",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Wrappers around the Microsoft Graph API to add response types to the Mail-related queries.",
   "keywords": [
     "microsoft-graph",
